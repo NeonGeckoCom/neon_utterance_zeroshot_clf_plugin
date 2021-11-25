@@ -25,9 +25,12 @@
 from flair.data import Sentence
 from flair.models import TARSClassifier
 from neon_transformers import UtteranceTransformer
+from neon_transformers.tasks import UtteranceTask
 
 
 class TarsZeroShotClassifier(UtteranceTransformer):
+    task = UtteranceTask.ADD_CONTEXT
+
     def __init__(self, name="TarsZeroShotClassifier", priority=99):
         super().__init__(name, priority)
         # Load pre-trained TARS model for English
